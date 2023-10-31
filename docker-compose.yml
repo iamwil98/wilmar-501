@@ -1,0 +1,25 @@
+version: '3'
+services:
+  mi-aplicacion:
+    build:
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+    - D:\2023\SENA\Ficha-2672501\Wilmar-Actividad\datadrive:/datadrive
+
+  mysql:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: mysecret
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: myuserpassword
+    volumes:
+      - D:\2023\SENA\Ficha-2672501\Wilmar-Actividad\mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
